@@ -1,0 +1,33 @@
+{
+  "name": "re-hivemind-backend-api",
+  "version": "1.0.0",
+  "description": "The Api Backend with Node and Express ",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "^18.16.0",
+    "npm": "^9.5.1",
+    "yarn": "^1.22.19"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0"
+  },
+  "scripts": {
+    "dev": "cross-env DEBUG=app:* node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "prettier": "^2.8.7"
+  }
+}
