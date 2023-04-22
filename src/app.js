@@ -3,6 +3,9 @@ import appConfig from './appConfig.js';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
+import { errHandler, headerFunction, notFound, unauthorizedErrors } from './middleware/errorMiddleware.js';
+import { testAuth } from './helper/extraHelper.js';
+import { extendedRequestMiddleware } from './middleware/index.js';
 
 const app = express();
 const { whiteList } = appConfig;
@@ -34,10 +37,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 app.use(helmet());
 app.use('*', cors(corsOptionsDelegate));
-
-
-
-
-
+app.all('*', headerFunction);
+app.use(extendedRequestMiddleware);
+// route
+app.get('/', testAuth);
+app.use(unauthorizedErrors);
+app.use(errHandler);
+app.use(notFound);
 
 export default app;
